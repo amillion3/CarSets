@@ -13,29 +13,38 @@ namespace CarSets
             Showroom.Add("Justy");
             Showroom.Add("Forester");
 
-            Console.WriteLine($"There are {Showroom.Count} cars in your showroom.");
-
-            Showroom.Add("Impreza");
-
-            Console.WriteLine($"There are {Showroom.Count} cars in your showroom.");
-
             HashSet<string> UsedLot = new HashSet<string>
             {
                 { "Brat" },
                 { "SVX" }
             };
 
+            // Combines 2 cars from UsedLot with existing Showroom hashset
             Showroom.UnionWith(UsedLot);
 
+            Showroom.Remove("Impreza");
+
+            HashSet<string> Junkyard = new HashSet<string> {
+                { "Model 3" },
+                { "Explorer" },
+                { "Impreza" },
+                { "Brat" },
+                { "Justy" },
+            };
+
+            HashSet<string> MatchingCars = new HashSet<string>();
+
+            MatchingCars.UnionWith(Showroom);
+            MatchingCars.IntersectWith(Junkyard);
+
             Console.ReadLine();
-            //Create another set named UsedLot and add two more car model strings to it.
-            //Use the UnionWith() method on Showroom to add in the two models you added to UsedLot.
-            //You've sold one of your cars. Remove it from the set with the Remove() method.
+
             //  Acquiring more cars
             //Now create another HashSet of cars in a variable Junkyard.Someone who owns 
             //  a junkyard full of old cars has approached you about buying the entire inventory.
             //  In the new set, add some different cars, but also add a few that are the 
             //  same as in the Showroom set.
+
             //Use the IntersectWith() method to see which cars exist in both the show room 
             //  and the junkyard.
             //Now you're ready to buy the cars in the junkyard. Use the UnionWith() method 
